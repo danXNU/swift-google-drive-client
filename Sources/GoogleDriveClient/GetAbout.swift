@@ -1,4 +1,7 @@
 import Foundation
+#if os(Linux)
+import FoundationNetworking
+#endif
 
 public struct GetAbout: Sendable {
   public enum Error: Swift.Error, Sendable, Equatable {

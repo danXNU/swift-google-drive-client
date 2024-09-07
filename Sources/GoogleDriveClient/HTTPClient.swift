@@ -1,4 +1,7 @@
 import Foundation
+#if os(Linux)
+import FoundationNetworking
+#endif
 
 public struct HTTPClient: Sendable {
   public typealias DataForRequest = @Sendable (URLRequest) async throws -> (Data, URLResponse)

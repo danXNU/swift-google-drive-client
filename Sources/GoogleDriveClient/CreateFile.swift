@@ -1,4 +1,7 @@
 import Foundation
+#if os(Linux)
+import FoundationNetworking
+#endif
 
 public struct CreateFile: Sendable {
   public struct Params: Sendable, Equatable {

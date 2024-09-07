@@ -1,5 +1,8 @@
 import XCTest
 @testable import GoogleDriveClient
+#if os(Linux)
+import FoundationNetworking
+#endif
 
 final class GetFileDataTests: XCTestCase {
   func testGetFileData() async throws {

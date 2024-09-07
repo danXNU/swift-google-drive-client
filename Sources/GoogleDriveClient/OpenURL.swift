@@ -1,5 +1,7 @@
 import Foundation
+#if !os(Linux)
 import SwiftUI
+#endif
 
 public struct OpenURL: Sendable {
   public typealias Run = @Sendable (URL) async -> Bool
@@ -16,6 +18,7 @@ public struct OpenURL: Sendable {
   }
 }
 
+#if !os(Linux)
 extension OpenURL {
   public static let live = OpenURL { url in
     let stream = AsyncStream<Bool> { continuation in
@@ -32,3 +35,4 @@ extension OpenURL {
     return await stream.first(where: { _ in true }) ?? false
   }
 }
+#endif

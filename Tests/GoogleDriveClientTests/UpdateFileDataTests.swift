@@ -1,5 +1,8 @@
 import XCTest
 @testable import GoogleDriveClient
+#if os(Linux)
+import FoundationNetworking
+#endif
 
 final class UpdateFileDataTests: XCTestCase {
   func testUpdateFileData() async throws {

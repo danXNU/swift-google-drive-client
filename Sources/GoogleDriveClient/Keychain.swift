@@ -1,5 +1,7 @@
 import Foundation
+#if !os(Linux)
 import Security
+#endif
 
 public struct Keychain: Sendable {
   public typealias LoadCredentials = @Sendable () async -> Credentials?
@@ -21,6 +23,7 @@ public struct Keychain: Sendable {
   public var deleteCredentials: DeleteCredentials
 }
 
+#if !os(Linux)
 extension GoogleDriveClient.Keychain {
   public static func live(
     service: String =  "pl.darrarski.GoogleDriveClient"
@@ -133,3 +136,4 @@ struct _Keychain {
     }
   }
 }
+#endif
